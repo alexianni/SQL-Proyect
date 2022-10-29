@@ -40,4 +40,35 @@ constraint product_fk foreign key (product_id_fk) references PRODUCTS(product_id
 ```
 SHOW TABLES IN sales_db;
 ```
+- Output
+<table border="1">
+<tbody><tr>
+<td bgcolor="silver" class="medium">Tables_in_sales_db</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">products</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">sales</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">users</td>
+</tr>
+</tbody></table>
+
+### - Se agregan datos
+
+- Table Products 
+```
+select * from Products; 
+INSERT INTO Products (
+product_id,
+name,
+description,
+type,
+price_usd  )
+```
 
