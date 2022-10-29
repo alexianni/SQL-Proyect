@@ -1,1 +1,1 @@
-# Sales-Analyst--Power-bi
+# Sales-Analyst-Power-bi
