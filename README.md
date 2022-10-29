@@ -1,4 +1,4 @@
-# Data exploration on SQL
+# Data exploration in SQL
 
 ### - Creación de tablas
 
@@ -119,6 +119,20 @@ select
 count(name) as Cantidad_de_productos
 from products;
 ```
+- Output
+
+<table border="1">
+<tbody><tr>
+<td bgcolor="silver" class="medium">Cantidad_de_productos</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">95</td>
+</tr>
+</tbody></table>
+
+</body></html>
+
 ###  2. Cantidad de artículos del catálogo por tipo de productos ordenándolos de  la mayor cifra a la menor
 ```
 
@@ -129,6 +143,64 @@ from products
 group by(type)
 order by count(distinct name) desc;
 ```
+
+- Output
+
+<body>
+<table border="1">
+<tbody><tr>
+<td bgcolor="silver" class="medium">Cantidad_de_productos</td>
+<td bgcolor="silver" class="medium">Tipo_de_producto</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">30</td>
+<td class="normal" valign="top">Tech</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">20</td>
+<td class="normal" valign="top">Home</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">17</td>
+<td class="normal" valign="top">Clothes</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">7</td>
+<td class="normal" valign="top">Healt</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">7</td>
+<td class="normal" valign="top">Phones</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">5</td>
+<td class="normal" valign="top">Games</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">5</td>
+<td class="normal" valign="top">Videogames</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">2</td>
+<td class="normal" valign="top">Accessories</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">1</td>
+<td class="normal" valign="top">Sex Shop</td>
+</tr>
+</tbody></table>
+
+</body>
+
 ### 3. Product id, product name y el price del artículo más caro y del  más barato  
 
 ```
@@ -140,8 +212,24 @@ name as Nombre_producto
 from products
 order by (price_usd) limit 1;
 ```
+- Output
 
-```
+<body>
+<table border="1">
+<tbody><tr>
+<td bgcolor="silver" class="medium">Precio</td>
+<td bgcolor="silver" class="medium">id</td>
+<td bgcolor="silver" class="medium">Nombre_producto</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">6.75</td>
+<td class="normal" valign="top">74</td>
+<td class="normal" valign="top">mascarilla infantil</td>
+</tr>
+</tbody></table>
+ 
+ ```
 select
 price_usd as Precio,
 product_id as id,
@@ -149,6 +237,27 @@ name as Nombre_producto
 from products
 order by (price_usd) desc limit 1;
 ```
+ - Output
+
+</body>
+
+<body>
+<table border="1">
+<tbody><tr>
+<td bgcolor="silver" class="medium">Precio</td>
+<td bgcolor="silver" class="medium">id</td>
+<td bgcolor="silver" class="medium">Nombre_producto</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">787.5</td>
+<td class="normal" valign="top">36</td>
+<td class="normal" valign="top">iphone 12</td>
+</tr>
+</tbody></table>
+
+</body>
+
 ### 4. Mayor registros dentro de la plataforma, por genero
 
 ```
@@ -161,6 +270,28 @@ from users
 group by gender;
 ```
 
+- Output
+
+<body>
+<table border="1">
+<tbody><tr>
+<td bgcolor="silver" class="medium">Cantidad</td>
+<td bgcolor="silver" class="medium">Genero</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">1924</td>
+<td class="normal" valign="top">M</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">1576</td>
+<td class="normal" valign="top">F</td>
+</tr>
+</tbody></table>
+
+</body>
+
 ### 5. El top 5 de estados es donde hay menos usuarios registrados
 
 ```
@@ -171,6 +302,44 @@ from users
 group by state
 order by user_id  asc limit 5;
 ```
+
+- Output 
+
+<body>
+<table border="1">
+<tbody><tr>
+<td bgcolor="silver" class="medium">state</td>
+<td bgcolor="silver" class="medium">Cantidad_de_usuarios</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">Michoacán de Ocampo</td>
+<td class="normal" valign="top">237</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">Chiapas</td>
+<td class="normal" valign="top">180</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">Morelos</td>
+<td class="normal" valign="top">32</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">Chihuahua</td>
+<td class="normal" valign="top">216</td>
+</tr>
+
+<tr>
+<td class="normal" valign="top">Jalisco</td>
+<td class="normal" valign="top">145</td>
+</tr>
+</tbody></table>
+
+</body>
+
 ### 6. Fecha mínima de la tabla SALES 
 ```
 select * from sales;
