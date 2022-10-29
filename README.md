@@ -13711,4 +13711,124 @@ values
 
 ``` 
 
+### Cantidad de productos del catalogo
+
+```
+select * from products; 
+
+select 
+count(name) as Cantidad_de_productos
+from products;
+```
+
+/* 2. ¿Cuántos artículos tiene tu catálogo por tipo de productos ordenándolos de 
+la mayor cifra a la menor? */
+```
+
+select 
+count(distinct name) as Cantidad_de_productos,
+type as Tipo_de_producto
+from products
+group by(type)
+order by count(distinct name) desc;
+```
+
+/* 3. ¿Cuál es el product id, product name y el price del artículo más caro y del 
+más barato?  */ 
+
+```
+
+select
+price_usd as Precio,
+product_id as id,
+name as Nombre_producto
+from products
+order by (price_usd) limit 1;
+```
+
+```
+select
+price_usd as Precio,
+product_id as id,
+name as Nombre_producto
+from products
+order by (price_usd) desc limit 1;
+```
+
+/* 4. ¿Qué tienes más registrado dentro de la plataforma, mujeres u hombres? */
+
+```
+select *from users;
+
+select 
+count(user_id) as Cantidad,
+gender as Genero
+from users
+group by gender;
+```
+
+/*5. El top 5 de estados es donde tienes menos usuarios registrados */
+
+```
+select 
+state,
+count(user_id) Cantidad_de_usuarios
+from users
+group by state
+order by user_id  asc limit 5;
+```
+
+/* 6. ¿Cuál es la fecha mínima de la tabla SALES? */
+```
+select * from sales;
+
+select
+min(date) as Fecha_minima
+from sales;
+```
+
+/* 7. ¿Qué día ha sido el día que más ingresos han generado? */
+
+```
+SELECT 
+    date,
+    SUM(amount) as Amount
+FROM sales
+GROUP BY date
+ORDER BY amount DESC limit 1;
+```
+
+/* 8. Listar todos los nombres de los productos empezando por el que más  unidades ha vendido. */
+
+```
+select 
+product_id,
+sum(units) units,
+name
+from products P
+left JOIN SALES S ON P.product_id = S.product_id_fk 
+group by(p.name)
+order by(units) desc;
+```
+
+/* 9. Coloca los datos del usuario con mayor amount generado. */
+
+```
+select 
+user_id, 
+first_name,
+last_name,
+gender,
+zip_code,
+address,
+state,
+city,
+phone,
+sum(amount) amount
+ from users U 
+ left join sales S on U.user_id = S. user_id_fk
+ group by (user_id)
+ order by(amount) desc limit 1; 
+ ```
+
 
