@@ -1,5 +1,9 @@
 # Data exploration in SQL
 
+- Description: In this project, a database containing the sales, products and  customers of a fictitious company, created and analyzed with the aim of developing queries that help find information and make decisions.
+- Skill/technology: SQL, exploratory data analysis
+--- 
+
 ### - Creación de tablas
 
 ```
